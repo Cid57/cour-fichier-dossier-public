@@ -8,11 +8,13 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'index';
 $path = '../src/pages/' . $page . '.php';
 if (file_exists($path)) {
 
+    // Db connect et chargement des variables globales
+
+    // Chargement ds donnees pour la page
     require $path;
 
-    require '../templates/inc.top.html.php';
-    require '../templates/' . $page . '.html.php';
-    require '../templates/inc.bottom.html.php';
+    // Inclusion de template correspondant a la page
+    require '../templates/layout.html.php';
 } else {
     // Erreur 404
     header('HTTP/1.1 404 Not Found');
