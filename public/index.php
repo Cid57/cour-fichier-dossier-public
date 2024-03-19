@@ -10,10 +10,11 @@ if (file_exists($path)) {
 
     require $path;
 
+    require '../templates/inc.top.html.php';
     require '../templates/' . $page . '.html.php';
+    require '../templates/inc.bottom.html.php';
 } else {
     // Erreur 404
     header('HTTP/1.1 404 Not Found');
     require '../templates/404.html.php';
-    exit;
 }
